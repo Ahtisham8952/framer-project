@@ -1,0 +1,43 @@
+{
+  "name": "marketplace",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@builder.io/dev-tools": "^1.0.1",
+    "@builder.io/react": "^3.2.6",
+    "@builder.io/sdk": "^2.2.2",
+    "@chakra-ui/icons": "^2.0.11",
+    "@chakra-ui/react": "^2.8.2",
+    "@chakra-ui/system": "^2.2.12",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@fontsource/inter": "^5.0.16",
+    "@fontsource/poppins": "^4.5.10",
+    "@fontsource/rajdhani": "^4.5.10",
+    "@fontsource/raleway": "^4.5.11",
+    "framer-motion": "^7.10.3",
+    "graphql-request": "^6.1.0",
+    "gsap": "^3.12.5",
+    "next": "12.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.10.1",
+    "react-simply-carousel": "^8.4.0",
+    "react-slick": "^0.29.0",
+    "react-spring": "^9.7.3",
+    "react-youtube": "^10.1.0",
+    "scrollmagic": "^2.0.8",
+    "scrollmagic-plugin-gsap": "^1.0.4",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "eslint": "8.25.0",
+    "eslint-config-next": "12.3.1"
+  }
+}
