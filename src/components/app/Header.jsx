@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Flex, Box, IconButton, useDisclosure } from '@chakra-ui/react';
+import { Flex, Box, IconButton, useDisclosure,Image } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import Sidebar from './Sidebar';
 
@@ -27,7 +27,7 @@ const Header = () => {
     >
       <Box>
         {/* Your logo component */}
-        <img src="/inlogo.svg" alt="Logo" height={24} />
+        <Image src="/inlogo.svg" alt="Logo" height={24} />
       </Box>
       <IconButton
         aria-label="Open Sidebar"
