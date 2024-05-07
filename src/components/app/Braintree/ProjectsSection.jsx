@@ -40,7 +40,7 @@ const ProjectsSection = () => {
             w="100%"
           >
               {RelatedProjects?.map((product, index) => (
-               <Box position={"relative"}>
+               <Box position={"relative"} key={index}>
                 <Box position={"absolute"}  top='-46px' bg="white"  borderRadius={"50%"} border="1px solid #0C1E21" h="30px" w='30px' display={"flex"} justifyContent={"center"} alignItems={"center"}>
 <Box   bg={index === 0 ? "linear-gradient(to right, #E97522 0%, #1EA3B1 100%)" : "#0C1E21"}  h="12px" w="12px" borderRadius={"50%"}></Box>
                 </Box>
