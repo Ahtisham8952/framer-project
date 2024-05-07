@@ -7,7 +7,7 @@ import ProjectsSection from './ProjectsSection'
 const BrainIndex = () => {
   return (
    <>
-   <Box bg="gray">
+   <Box >
     <Box >
         <Box p={{base:'20px',md:'30px',lg:'50px',xl:'100px'}}>
 
