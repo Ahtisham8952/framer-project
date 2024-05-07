@@ -1,7 +1,7 @@
 import { Box, Flex, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 import SliderComponent from './SliderComponent'
-import SwiperSlider from './SwiperSlider'
+
 import ProjectsSection from './ProjectsSection'
 
 const BrainIndex = () => {
@@ -68,6 +68,7 @@ const BrainIndex = () => {
   </Box>
 
 </Box>
+
 <Box py="100px">
 
 
