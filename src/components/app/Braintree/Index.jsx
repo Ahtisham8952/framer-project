@@ -1,13 +1,15 @@
 import { Box, Flex, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 import SliderComponent from './SliderComponent'
+import SwiperSlider from './SwiperSlider'
+import ProjectsSection from './ProjectsSection'
 
 const BrainIndex = () => {
   return (
    <>
-   <Box bg="white">
+   <Box bg="gray">
     <Box >
-        <Box p="100px">
+        <Box p={{base:'20px',md:'30px',lg:'50px',xl:'100px'}}>
 
        
         <Flex gap={"8px"} alignItems="center" >
@@ -26,19 +28,26 @@ const BrainIndex = () => {
        Our Testimonials
           </Text>
         </Flex>
-        <Flex mt="24px">
-            <Box w="50%">
+        <Flex mt="24px" flexDirection={{base:'column',md:'row'}}>
+            <Box w={{base:'100%',md:'50%'}}>
             <Text
-            maxW={"524px"}
+            maxW={{base:'100%',md:'100%',lg:'524px'}}
             color="#1A1A1A"
-            fontSize="48px"
+            fontSize={{
+              base: '18px',
+              md: '22px',
+              lg: '32px',
+              xl: '48px',
+              xxl: '48px',
+              xxxl: '48px',
+            }}
             fontWeight="700"
-            lineHeight={"52px"}
+            lineHeight={"150%"}
           >
       What our Customers Says About Us
           </Text>
             </Box>
-            <Box w="50%">
+            <Box w={{base:'100%',md:'50%'}} display={"flex"} justifyContent={{base:'start',md:'flex-end'}}>
             <Text
               maxW={"470px"}
             color="#7B7A7A"
@@ -53,10 +62,16 @@ const BrainIndex = () => {
         </Flex>
         </Box>
 
-  <Box pl="100px">
+  <Box pl={{base:'0px',md:'100px'}} >
   <SliderComponent/>
+  {/* <SwiperSlider/> */}
   </Box>
 
+</Box>
+<Box py="100px">
+
+
+<ProjectsSection/>
 </Box>
    </Box>
    </>
