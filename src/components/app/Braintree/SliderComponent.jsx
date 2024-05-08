@@ -67,11 +67,14 @@ const SliderComponent = () => {
   };
 
   const handleAfterChange = (index) => {
-    // Check if the last slide is reached and set progress to 100%
-    if (index === data.length - 1) {
-      setProgress(100);
-    }
-  };
+  // Check if the last slide is reached and set progress to 100%
+  if (index === data.length - 1) {
+    setProgress(100);
+  } else {
+    const calc = ((index + 1) / data.length) * 100;
+    setProgress(calc);
+  }
+};
 
  
 
@@ -83,6 +86,7 @@ const SliderComponent = () => {
     centerMode: false,
     initialSlide: 0,
     infinite: false,
+    // centerPadding: '0% 20% 0% 0%',
     beforeChange: handleBeforeChange,
     afterChange: handleAfterChange,
     responsive: [
@@ -97,11 +101,22 @@ const SliderComponent = () => {
   };
 
   const goToNext = () => {
-    slider.slickNext();
+    // Check if slider is available and the current slide is not the last slide
+    if (slider) {
+      const currentSlide = slider.state.currentSlide;
+      if (currentSlide !== data.length - 1) {
+        slider.slickNext();
+        const calc = ((currentSlide + 2) / data.length) * 100; // Increment currentSlide by 2 to calculate progress
+        setProgress(calc);
+      }
+    }
   };
 
   const goToPrev = () => {
-    slider.slickPrev();
+    // Check if slider is available and the current slide is not the first slide
+    if (slider && slider.state.currentSlide !== 0) {
+      slider.slickPrev();
+    }
   };
 
   return (

@@ -3,11 +3,22 @@ import React from 'react'
 import SliderComponent from './SliderComponent'
 
 import ProjectsSection from './ProjectsSection'
+import Header from './Header'
+import HeroSlider from './HeroSlider'
 
 const BrainIndex = () => {
   return (
    <>
-   <Box >
+   <Box maxW={"1440px"} w="100%" mx="auto" position={"relative"}>
+
+ <Box maxW={"1240px"} w="100%" mx='auto' >
+ <Header/>
+ </Box>
+ <Box>
+  <HeroSlider/>
+ </Box>
+   
+   <Box bg="gray">
     <Box >
         <Box p={{base:'20px',md:'30px',lg:'50px',xl:'100px'}}>
 
@@ -74,6 +85,7 @@ const BrainIndex = () => {
 
 <ProjectsSection/>
 </Box>
+   </Box>
    </Box>
    </>
   )
