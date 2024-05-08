@@ -13,7 +13,7 @@ const HeroSlider =()=> {
       slidesToScroll: 1,
       arrows: false,
       autoplay: true,
-      autoplaySpeed: 1000,
+      autoplaySpeed: 2000,
       beforeChange: (current, next) => setCurrentSlide(next),
       
     };
