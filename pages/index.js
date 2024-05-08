@@ -1,5 +1,6 @@
 import React from "react";
-import SnapScroll from "../src/components/app/Index";
+import BrainIndex from "../src/components/app/Braintree/Index";
+
 
 
 
@@ -8,7 +9,7 @@ import SnapScroll from "../src/components/app/Index";
 const Home = () => {
   return (
     <>
-<SnapScroll/>
+<BrainIndex/>
     </>
   );
 };

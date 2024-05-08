@@ -37,9 +37,12 @@ export default function Header() {
   }, []);
 
   return (
-    <Box position={"fixed"} top="0px" maxW={"1240px"} w="100%" zIndex={"999"}  bg={scrolling ? 'white' : 'transparent'}>
+    <Box position={"fixed"}  top="0px" maxW={"1440px"} w="100%" zIndex={"999"}  bg={scrolling ? 'white' : 'transparent'}>
       <Flex
-      
+      flexDirection={{base:'row-reverse',md:'row'}}
+      mx={"auto"}
+      maxW={"1240px"} w="100%" 
+      h="78px"
         color={useColorModeValue('gray.600', 'white')}
         minH={'60px'}
         py={{ base: 2 }}
@@ -47,19 +50,20 @@ export default function Header() {
        
         align={'center'}>
         <Flex
-          flex={{ base: 1, md: 'auto' }}
+        
           ml={{ base: -2 }}
           display={{ base: 'flex', md: 'none' }}>
           <IconButton
             onClick={onToggle}
-            icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
+            icon={isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon  w={5} h={5} />}
             variant={'ghost'}
             aria-label={'Toggle Navigation'}
+            color={scrolling ? 'black' : 'white'} 
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+        <Flex  alignItems={"center"} flex={{ base: 1 }} justify={{ base: 'start', md: 'start' }}>
           <Box
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+            textAlign={useBreakpointValue({ base: 'start', md: 'start' })}
             fontFamily={'heading'}
             color={useColorModeValue('gray.800', 'white')}>
           <Image src={scrolling ? "/darlogo.png" : "/brainlogo.png"} />
@@ -71,31 +75,30 @@ export default function Header() {
         </Flex>
 
         <Stack
+        display={{base:'none',md:'flex'}}
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-          <Button
-            as={'a'}
-            fontSize={'sm'}
-            fontWeight={400}
-            variant={'link'}
-            href={'#'}>
-            Sign In
-          </Button>
-          <Button
-            as={'a'}
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'pink.400'}
-            href={'#'}
-            _hover={{
-              bg: 'pink.300',
-            }}>
-            Sign Up
-          </Button>
+           <Button
+             border={scrolling ? '1px solid black' : 'none'}
+              bg="#FFFFFF"
+              colorScheme={'#FFFFFF'}
+              color="#0C1E21"
+              fontSize="14px"
+              fontWeight="400"
+              lineHeight={'150%'}
+              p="8px 40px"
+              borderRadius={'50px'}
+              display="flex"
+              gap="12px"
+              alignItems={"center"}
+            
+            >
+              <Image src='/mailbox.svg'></Image>
+              Get in Touch
+            </Button>
+         
         </Stack>
       </Flex>
 
@@ -110,7 +113,9 @@ const DesktopNav = ({ scrolling }) => {
   const linkColor = useColorModeValue(scrolling ? 'gray.800' : '#FFFFFF', scrolling ? 'white' : '#FFFFFF');
   const linkHoverColor = useColorModeValue('gray.800', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
-  
+
+  // Get current path
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
 
   return (
     <Stack direction={'row'} spacing={4}>
@@ -126,8 +131,26 @@ const DesktopNav = ({ scrolling }) => {
                 color={linkColor}
                 _hover={{
                   textDecoration: 'none',
-                  color: linkHoverColor,
-                }}>
+                
+                }}
+                // Check if current path matches the link href exactly
+                css={{
+                  background: currentPath === navItem.href
+                    ? 'linear-gradient(#08131D, #08131D) padding-box, linear-gradient(10deg, #E611B7, #7514F1) border-box'
+                    : 'transparent',
+                    color:currentPath === navItem.href ? 'white' : (scrolling ? 'black' : 'white'),
+                  textTransform: 'uppercase',
+                  border: currentPath === navItem.href
+                    ? '1px solid transparent'
+                    : 'none',
+                  borderRadius: '50px',
+                  display: 'inline-block',
+                  // Apply border only if current path matches the link href
+                  borderImage: currentPath === navItem.href
+                    ? 'linear-gradient(135deg, #E97522 0%, #1EA3B1 100%) padding-box, linear-gradient(135deg, #E97522 0%, #1EA3B1 100%) border-box'
+                    : 'none',
+                }}
+              >
                 {navItem.label}
               </Link>
             </PopoverTrigger>
@@ -155,6 +178,7 @@ const DesktopNav = ({ scrolling }) => {
 };
 
 const DesktopSubNav = ({ label, href, subLabel }) => {
+  
   return (
     <Link
       href={href}
@@ -162,13 +186,17 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
       display={'block'}
       p={2}
       rounded={'md'}
-      _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
+      _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}
+      
+      >
       <Stack direction={'row'} align={'center'}>
         <Box>
           <Text
             transition={'all .3s ease'}
             _groupHover={{ color: 'pink.400' }}
-            fontWeight={500}>
+            fontWeight={500}
+           
+            >
             {label}
           </Text>
           <Text fontSize={'sm'}>{subLabel}</Text>
@@ -254,7 +282,7 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: 'Home',
-    href: '/animate',
+    href: '/', // Set the correct path for the home page
   },
   {
     label: 'Services',

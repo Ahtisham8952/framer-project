@@ -11,14 +11,14 @@ const BrainIndex = () => {
    <>
    <Box maxW={"1440px"} w="100%" mx="auto" position={"relative"}>
 
- <Box maxW={"1240px"} w="100%" mx='auto' >
+ <Box maxW={"1440px"} w="100%" mx='auto' >
  <Header/>
  </Box>
  <Box>
   <HeroSlider/>
  </Box>
    
-   <Box bg="gray">
+   <Box >
     <Box >
         <Box p={{base:'20px',md:'30px',lg:'50px',xl:'100px'}}>
 
